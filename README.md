@@ -1,45 +1,54 @@
-# Git for Web Development Project
-In this project you will be using the concepts learned in the Git for Web Development lesson to fork/clone/push/and submit a PR for each project during this sprint.
+# Module Project: Advanced Form Management - User Onboarding
+## Project Description
 
-This project consists of two parts:
+We've seen many different styles of form management by now -- simple to complex. Today we are going to unleash your inner form-wizard! 🧙
 
-## Part One:
-You will need to follow the Lambda School Git Workflow to add a file to this project follow the steps below:
+## Set Up The Project
 
-- [ ] Create your own version of this repo - Fork
-- [ ] Add your TL as a collaborator
-- [ ] Clone this repo
-- [ ] Create a branch `git checkout -b 'firstName-lastName'`
-  - [ ] Add a file to the project called `yourFirstName-yourLastName`.txt. This should contain the link to your completed codepen from part 2 as well as the review questions/answers
-  - [ ] Run your usual git commands for adding/committing and pushing **Be sure to push to your branch!**
-- [ ] Create a Pull-Request to submit your work
-  - [ ] Use your own student fork as the base (compare across forks, base-fork -> master).
-  - [ ] Add your TL as a reviewer on the Pull-Request
-- [ ] TL then will count the Assignment as done by merging the HW back into master "STUDENT FORK".
+- [k] Start off by installing a blank React app by running `npx create-react-app <app-name> --use-npm`.
+- [k] Using `npm`, add the following as dependencies inside your React app:
+  - `yup`
+  - `axios`
+- [k] Create a component file called `Form.js`, import it into your `App.js` file, and place the component in your JSX there.
 
-## Part Two:
-1. fork this codepen https://codepen.io/BritHemming/pen/eYYEoPa?editors=1100
-2. You will be marking up all of the HTML and styling it to look like this: https://codepen.io/BritHemming/full/jONmxOm using CSS
-* this should be review from yesterday/ extra practice
-3. After you are finished please copy the review questions into your .txt file and answer them
-4. don't forget to add, commit and push your changes.
+## STEP 1 - Create Your Advanced Form
 
+We want to create a form to onboard a new user to our system. We need _at least_ the following pieces of information about our new user:
 
-## Stretch
-Stretch Review questions: 
-    1. What is the difference between an inline element and a block element?
-    2. What happens when an element is positioned absolutely? 
-    3. How do I make an element take up only the amount of space it needs but also have the ability to give it a width? 
-    4. Name 3 elements that are diplay block by default, 2 elements that are display inline by default and 1 element that is display inline-block by default
-    5. In your own words, explain the box model. What is the fix for the box model? 
-Stretch Git Tasks
-- [ ] While the processes learned here will set you up to be successful in most situations, they are just the tip of the iceberg in learning Git. Independently research the following topics to learn more about Git.
-  - [ ] Research and understand what a `merge conflict` is and how to resolve it.
-  - [ ] Research the Git commands `pull`, `rebase`, `merge`. These commands will allow you to bring in changes that other developers push to the master branch.
-  - [ ] Research the Git commands `reset `, `revert`, `clean`. These commands will allow you to go back and amends previous commits you have made.
+- [k] Name
+- [k] Email
+- [k] Password
+- [k] Terms of Service (checkbox)
+- [k] A Submit button to send our form data to the server.
 
-- [ ] Research and set up a Graphical User Interface (GUI) Git console. 
+## STEP 2 - Implement Form Validation and Error Messaging
 
-- [ ] Research and setup SSH keys with GitHub, so that you do not need to input your username/password each time you push. 
+Form validation is one of the facets of an application that makes it feel polished and controlled from a user perspective. With that in mind, implement the following:
 
+- [k] Using Yup, set up _at least_ two different validations along with custom error messages that will display on screen when validation fails.
 
+## STEP 3 - Make a POST Request
+
+Being able to `POST` data is a key skill of any developer, no matter your skill level.
+
+- [k] Craft a `POST` request using `axios` that sends your form data to the following endpoint: _https://reqres.in/api/users_
+- [k] Verify using a `console.log()` that you are receiving a successful response back
+
+(Note: For those that are curious, we're using [reqres.in](https://reqres.in/) for this assignment's API. It's a free API that allows us to simulate a `POST` request for any data that we send it. Pretty awesome!)
+
+## STEP 4 - Display Returned Data to Screen
+
+When you get your data back, you will want to do something with it, right? Let's display a list of users in our app.
+
+- [huh?] Set up a state property called `users` that is initialized with an empty array
+- [huh?] Every time you make a `POST` request, and get that new user data back, update your `users` state with the new user added to the array
+- [huh?] Render `users` in your app. You can use the html pre tag and JSON.stringify() method to display your post request.
+
+## Stretch Goals
+
+The following are stretch goals that you should attempt _after_ you meet MVP for your project:
+
+- [ ] Add basic styling to your form in your app. Make it look pretty with any styling method you choose.
+- [ ] Implement a dropdown menu in your form. Add a `role` value to your state and add a dropdown with different roles for your users.
+- [ ] Create 3 new inputs inside your form of your choice along with corresponding validation and error messaging
+- [ ] Add to your existing handling so that, if a user inputs their email as `waffle@syrup.com`, they receive an error message in their form that says _"That email is already taken."_
